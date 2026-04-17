@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "brand_name": "TTIM Marketing",
+  "website_url": "https://ttimmarketing.com",
+  "extracted_at": "2026-04-17T00:00:00Z",
+  "extraction_notes": "CSS/color extraction unavailable (JS-rendered site); voice extracted from headline copy. Screenshot capture skipped (Playwright not installed). Confidence: Medium.",
+
+  "voice": {
+    "formal_casual": 8,
+    "rational_emotional": 5,
+    "playful_serious": 7,
+    "bold_subtle": 9,
+    "traditional_innovative": 8,
+    "expert_accessible": 7,
+    "descriptors": ["bold", "punchy", "results-driven", "disruptive", "approachable"]
+  },
+
+  "colors": {
+    "primary": null,
+    "secondary": [],
+    "forbidden": [],
+    "background": null,
+    "text": null
+  },
+
+  "typography": {
+    "heading_font": null,
+    "body_font": "system-ui",
+    "pairing_descriptor": "Google Fonts not detected; likely system default or CSS-in-JS"
+  },
+
+  "imagery": {
+    "style": "professional photography mixed with bold graphic design",
+    "subjects": ["business owners", "marketing results", "digital screens", "growth metrics"],
+    "composition": "bold, high-contrast layouts with strong headline overlays",
+    "forbidden": ["cheesy stock photos", "generic corporate handshakes", "cluttered compositions"]
+  },
+
+  "aesthetic": {
+    "mood_keywords": ["bold", "energetic", "results-focused", "modern", "confident"],
+    "texture": "minimal",
+    "negative_space": "moderate"
+  },
+
+  "brand_values": ["simplicity", "creativity", "results", "innovation", "growth"],
+
+  "target_audience": {
+    "age_range": "28-50",
+    "profession": "SME business owners and marketing managers in Malaysia",
+    "pain_points": [
+      "marketing feels too complex and overwhelming",
+      "poor ROI from current ad spend",
+      "managing too many vendors",
+      "no clear strategy or full-funnel tracking"
+    ],
+    "aspirations": [
+      "accelerate business growth",
+      "dominate their market online",
+      "replace entire marketing department with one agency",
+      "see clear, measurable results"
+    ]
+  },
+
+  "company": {
+    "type": "Agency",
+    "location": "Malaysia",
+    "entity": "TTIM Marketing Sdn Bhd",
+    "services": [
+      "3Rs Marketing",
+      "Gamification Marketing",
+      "Integrated Marketing",
+      "Social Media Marketing",
+      "Google Marketing (SEO, SEM, YouTube)"
+    ],
+    "industries_served": [
+      "Telecommunication",
+      "Pets & Animal Supplies",
+      "Cryptocurrency",
+      "Crowdfunding",
+      "Education (Swimming)",
+      "E-commerce"
+    ]
+  }
+}
