@@ -10,6 +10,8 @@ import {
   Building2,
   AlertCircle,
   Download,
+  Link,
+  Loader2,
 } from "lucide-react";
 import PropertyForm from "./components/PropertyForm";
 import AdCard from "./components/AdCard";
@@ -93,6 +95,36 @@ export default function Home() {
   const [showForm, setShowForm] = useState(true);
   const outputRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+
+  const [importUrl, setImportUrl] = useState("");
+  const [isImporting, setIsImporting] = useState(false);
+  const [importError, setImportError] = useState("");
+
+  const handleImport = async () => {
+    if (!importUrl.trim()) return;
+    setImportError("");
+    setIsImporting(true);
+    try {
+      const res = await fetch("/api/scrape", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: importUrl.trim() }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Import failed");
+      setDetails((prev) => ({
+        ...prev,
+        ...data.details,
+        formats: prev.formats,
+        targetAudience: prev.targetAudience,
+      }));
+      setImportUrl("");
+    } catch (err) {
+      setImportError(err instanceof Error ? err.message : "Import failed. Please try again.");
+    } finally {
+      setIsImporting(false);
+    }
+  };
 
   const handleGenerate = async () => {
     if (!details.location && !details.title) {
@@ -254,6 +286,41 @@ export default function Home() {
             )}
 
             <div className={hasResults && !showForm ? "hidden lg:block" : undefined}>
+              {/* Apify URL Import */}
+              <div className="mb-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <p className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  <Link size={11} />
+                  Import from listing URL
+                </p>
+                <div className="flex gap-2">
+                  <input
+                    type="url"
+                    value={importUrl}
+                    onChange={(e) => setImportUrl(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && handleImport()}
+                    placeholder="https://www.propertyguru.com.my/..."
+                    disabled={isImporting}
+                    className="flex-1 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-800 placeholder-slate-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100 disabled:opacity-50"
+                  />
+                  <button
+                    onClick={handleImport}
+                    disabled={isImporting || !importUrl.trim()}
+                    className="btn-primary px-3 py-2 text-sm disabled:opacity-50"
+                  >
+                    {isImporting ? <Loader2 size={14} className="animate-spin" /> : "Import"}
+                  </button>
+                </div>
+                {isImporting && (
+                  <p className="mt-2 text-xs text-blue-500">Scraping page via Apify…</p>
+                )}
+                {importError && (
+                  <p className="mt-2 flex items-center gap-1.5 text-xs text-red-500">
+                    <AlertCircle size={12} />
+                    {importError}
+                  </p>
+                )}
+              </div>
+
               <PropertyForm details={details} onChange={setDetails} />
 
               {/* Error */}
