@@ -228,15 +228,16 @@ No audit data; run /ads audit for weakness-targeted concepts
   - Mobile shows: `We'll Show You What's Broken. For Free.` — full headline visible
 - Primary Text:
   ```
-  A local F&B brand came to us after burning RM30K with two agencies. No results. Just excuses.
-  [93 chars — fully visible before "See More"]
+  A [INDUSTRY] brand came to us after burning [RM_AMOUNT] with two agencies. No results. Just excuses.
+  [⚠️ PLACEHOLDER — replace with a real verified client story before publishing]
 
-  We audited their marketing in 72 hours. Found 4 critical gaps. Fixed the strategy. Within 60 days they hit 3x ROAS — with a smaller budget than before.
+  We audited their marketing in [TIMEFRAME]. Found [N] critical gaps. Fixed the strategy. Within [TIMEFRAME] they hit [X]x ROAS — with a smaller budget than before.
 
   That audit was free. Yours is too. TTIM starts every client relationship by showing you exactly what's holding your growth back — before you spend a single ringgit with us. Book your free audit today.
   ```
-  - First 125 chars: `A local F&B brand came to us after burning RM30K with two agencies. No results. Just excuses.` (93 chars) — story hook fully visible before "See More"
-  - Full text: 467 chars (within 500 char limit)
+  - First 125 chars: `A [INDUSTRY] brand came to us after burning [RM_AMOUNT] with two agencies. No results. Just excuses.` — story hook visible before "See More"
+  - ⚠️ **Fill in placeholders with a real, documented client result before uploading to Meta. Unverified performance claims risk ad rejection.**
+  - Full text: verify char count after replacing placeholders (target ≤500 chars)
 - Description: `Free audit. Prove it first.` (27 chars)
 - CTA: Sign Up
-- Reels Hook: `They burned RM30K. We fixed it free.` (7 words on screen)
+- Reels Hook: `They burned [RM_AMOUNT]. We fixed it free.` (replace [RM_AMOUNT] with verified figure)
